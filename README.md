@@ -35,3 +35,10 @@ Or this:
 
     > units -qsv1 "`bin/warp -t -f 5 -d 4.3` yr" 'day'
     > 0.0201172 yr = 7.3476504 day
+    
+### Installation
+
+Clone the repo and run `make`. (The Makefile has `$(CC)` set to `clang`,
+and `$(CFLAGS)` are Clang-specific, it's a trivial matter to use GCC
+or your favorite C compiler instead.) Then put warp on your path, and
+you're ready to go.
