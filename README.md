@@ -33,5 +33,5 @@ You can use the output of warp in other programs. For example:
 
 Or this:
 
-    > units -qsv1 "`bin/warp -t -f 5 -d 4.3` yr" `day'
+    > units -qsv1 "`bin/warp -t -f 5 -d 4.3` yr" 'day'
     > 0.0201172 yr = 7.3476504 day
