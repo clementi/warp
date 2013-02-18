@@ -5,6 +5,16 @@
 
 #include "warp.h"
 
+#define _HELP_STR_ "--help"
+#define _HELP_STR_SHORT_ "-h"
+
+#define _DIST_STR_ "--distance"
+#define _DIST_STR_MED_ "--dist"
+#define _DIST_STR_SHORT_ "-d"
+
+#define _TNG_STR_ "--tng"
+#define _TNG_STR_SHORT_ "-t"
+
 void show_help(const char const *progname);
 
 int main(const int argc, char const **argv) {
@@ -19,8 +29,8 @@ int main(const int argc, char const **argv) {
     return 0;
   }
 
-  if (strncmp(argv[1], "-h", 2) == 0
-      || strncmp(argv[1], "--help", 6) == 0)
+  if (strncmp(argv[1], _HELP_STR_SHORT_, strnlen(_HELP_STR_SHORT_, 10)) == 0
+      || strncmp(argv[1], _HELP_STR_, strnlen(_HELP_STR_, 10)) == 0)
     {
       show_help(argv[0]);
       return 0;
@@ -29,9 +39,9 @@ int main(const int argc, char const **argv) {
   factor = strtod(argv[1], NULL);
 
   for (int i = 2; i < argc; i++) {
-    if (strncmp(argv[i], "-d", 2) == 0
-	|| strncmp(argv[i], "--distance", 10) == 0
-	|| strncmp(argv[i], "--dist", 6) == 0)
+    if (strncmp(argv[i], _DIST_STR_SHORT_, strnlen(_DIST_STR_SHORT_, 10)) == 0
+	|| strncmp(argv[i], _DIST_STR_, strnlen(_DIST_STR_, 10)) == 0
+	|| strncmp(argv[i], _DIST_STR_MED_, strnlen(_DIST_STR_MED_, 10)) == 0)
       {
 	has_distance = true;
 	if (i + 1 < argc)
@@ -42,14 +52,14 @@ int main(const int argc, char const **argv) {
 	}
       }
 
-    if (strncmp(argv[i], "-t", 2) == 0
-	|| strncmp(argv[i], "--tng", 5) == 0)
+    if (strncmp(argv[i], _TNG_STR_SHORT_, strnlen(_TNG_STR_SHORT_, 10)) == 0
+	|| strncmp(argv[i], _TNG_STR_, strnlen(_TNG_STR_, 10)) == 0)
       {
 	use_tng = true;
       }
 
-    if (strncmp(argv[i], "-h", 2) == 0
-	|| strncmp(argv[i], "--help", 6) == 0)
+    if (strncmp(argv[i], _HELP_STR_SHORT_, strnlen(_HELP_STR_SHORT_, 10)) == 0
+	|| strncmp(argv[i], _HELP_STR_, strnlen(_HELP_STR_, 10)) == 0)
       {
 	show_help(argv[0]);
 	return 0;
