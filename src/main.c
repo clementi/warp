@@ -65,6 +65,16 @@ int main(const int argc, char const **argv) {
 	return 0;
       }
   }
+
+  if (factor < 0) {
+    printf("Warp factor must be non-negative.\n");
+    return 1;
+  }
+
+  if (use_tng && factor >= 10) {
+    printf("Warp factor must be less than 10 if using the TNG formula.\n");
+    return 1;
+  }
   
   double velocity = use_tng ? tng_warp(factor) : tos_warp(factor);
 
