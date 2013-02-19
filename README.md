@@ -28,12 +28,12 @@ There you go.
 
 You can use the output of warp in other programs. For example:
 
-    > units -qsv1 "`bin/warp 5` c" 'm/s'
+    > units -qsv1 "`warp 5` c" 'm/s'
     > 125 c = 3.7474057e+10 m/s
 
 Or this:
 
-    > units -qsv1 "`bin/warp 5 -t -d 4.3` yr" 'day'
+    > units -qsv1 "`warp 5 -t -d 4.3` yr" 'day'
     > 0.0201172 yr = 7.3476504 day
     
 ## Installation
