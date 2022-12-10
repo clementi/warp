@@ -39,8 +39,7 @@ Or this:
 ## Installation
 
 Clone the repo and run `make`. (Although the Makefile has `CC` set to 
-`clang`, and `$CFLAGS` are [Clang][]-specific, it's a trivial matter to
-use GCC or your favorite C compiler instead.) Then put warp on your path, 
-and you're ready to go.
+`zig cc`, it's a trivial matter to use GCC or your favorite C compiler 
+instead.) Then put warp on your path, and you're ready to go.
 
 [clang]: http://clang.llvm.org/
