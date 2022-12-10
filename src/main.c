@@ -26,7 +26,7 @@ int main(const int argc, char const **argv) {
 
   if (argc < 2) {
     printf("Warp factor required.\n");
-    return 0;
+    return 1;
   }
 
   if (strncmp(argv[1], _HELP_STR_SHORT_, strlen(_HELP_STR_SHORT_)) == 0
@@ -57,7 +57,7 @@ int main(const int argc, char const **argv) {
       {
 		use_tng = true;
       }
-	
+
     if (strncmp(argv[i], _HELP_STR_SHORT_, strlen(_HELP_STR_SHORT_)) == 0
 		|| strncmp(argv[i], _HELP_STR_, strlen(_HELP_STR_)) == 0)
       {
@@ -75,7 +75,7 @@ int main(const int argc, char const **argv) {
     printf("Warp factor must be less than 10 if using the TNG formula.\n");
     return 1;
   }
-  
+
   double velocity = use_tng ? tng_warp(factor) : tos_warp(factor);
 
   if (has_distance)
