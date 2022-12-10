@@ -25,4 +25,4 @@ $(OBJ)/warp.o: $(SRC)/warp.c $(INC)/warp.h
 	$(CC) $(CFLAGS) $(SRC)/warp.c -I$(INC) -o $(OBJ)/warp.o
 
 clean:
-	rm -rvf $(OBJ)/*.o $(BIN)/warp
+	rm -rvf $(OBJ)/*.o $(BIN)/*
