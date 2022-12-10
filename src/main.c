@@ -15,7 +15,7 @@
 #define _TNG_STR_ "--tng"
 #define _TNG_STR_SHORT_ "-t"
 
-void show_help(const char const *progname);
+void show_help(const char *progname);
 
 int main(const int argc, char const **argv) {
   bool has_distance = false;
@@ -86,7 +86,7 @@ int main(const int argc, char const **argv) {
   return 0;
 }
 
-void show_help(const char const *progname) {
+void show_help(const char *progname) {
   printf("Usage: %s factor [options]\n", progname);
   printf("Options:\n");
   printf("  --distance, --dist, -d  Distance (in light-years)\n");

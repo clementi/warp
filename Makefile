@@ -1,5 +1,5 @@
-CC=clang
-CFLAGS=-c -Weverything
+CC=zig cc
+CFLAGS=-c -pedantic -Werror -std=c99
 
 BIN=./bin
 SRC=./src
