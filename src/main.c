@@ -29,41 +29,37 @@ int main(const int argc, char const **argv) {
     return 1;
   }
 
-  if (strncmp(argv[1], _HELP_STR_SHORT_, strlen(_HELP_STR_SHORT_)) == 0
-      || strncmp(argv[1], _HELP_STR_, strlen(_HELP_STR_)) == 0)
-    {
-      show_help(argv[0]);
-      return 0;
-    }
+  if (strncmp(argv[1], _HELP_STR_SHORT_, strlen(_HELP_STR_SHORT_)) == 0 ||
+      strncmp(argv[1], _HELP_STR_, strlen(_HELP_STR_)) == 0) {
+    show_help(argv[0]);
+    return 0;
+  }
 
   factor = strtod(argv[1], NULL);
 
   for (int i = 2; i < argc; i++) {
-    if (strncmp(argv[i], _DIST_STR_SHORT_, strlen(_DIST_STR_SHORT_)) == 0
-		|| strncmp(argv[i], _DIST_STR_, strlen(_DIST_STR_)) == 0
-		|| strncmp(argv[i], _DIST_STR_MED_, strlen(_DIST_STR_MED_)) == 0)
-      {
-		has_distance = true;
-		if (i + 1 < argc)
-		  distance_ly = strtod(argv[++i], NULL);
-		else {
-		  printf("Distance required.\n");
-		  return 1;
-		}
+    if (strncmp(argv[i], _DIST_STR_SHORT_, strlen(_DIST_STR_SHORT_)) == 0 ||
+        strncmp(argv[i], _DIST_STR_, strlen(_DIST_STR_)) == 0 ||
+        strncmp(argv[i], _DIST_STR_MED_, strlen(_DIST_STR_MED_)) == 0) {
+      has_distance = true;
+      if (i + 1 < argc)
+        distance_ly = strtod(argv[++i], NULL);
+      else {
+        printf("Distance required.\n");
+        return 1;
       }
+    }
 
-    if (strncmp(argv[i], _TNG_STR_SHORT_, strlen(_TNG_STR_SHORT_)) == 0
-		|| strncmp(argv[i], _TNG_STR_, strlen(_TNG_STR_)) == 0)
-      {
-		use_tng = true;
-      }
+    if (strncmp(argv[i], _TNG_STR_SHORT_, strlen(_TNG_STR_SHORT_)) == 0 ||
+        strncmp(argv[i], _TNG_STR_, strlen(_TNG_STR_)) == 0) {
+      use_tng = true;
+    }
 
-    if (strncmp(argv[i], _HELP_STR_SHORT_, strlen(_HELP_STR_SHORT_)) == 0
-		|| strncmp(argv[i], _HELP_STR_, strlen(_HELP_STR_)) == 0)
-      {
-		show_help(argv[0]);
-		return 0;
-      }
+    if (strncmp(argv[i], _HELP_STR_SHORT_, strlen(_HELP_STR_SHORT_)) == 0 ||
+        strncmp(argv[i], _HELP_STR_, strlen(_HELP_STR_)) == 0) {
+      show_help(argv[0]);
+      return 0;
+    }
   }
 
   if (factor < 0) {
