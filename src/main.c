@@ -79,9 +79,9 @@ int main(const int argc, char const **argv) {
   double velocity = use_tng ? tng_warp(factor) : tos_warp(factor);
 
   if (has_distance)
-    printf("%g\n", distance_ly / velocity);
+    printf("%lf\n", distance_ly / velocity);
   else
-    printf("%g\n", velocity);
+    printf("%lf\n", velocity);
 
   return 0;
 }
