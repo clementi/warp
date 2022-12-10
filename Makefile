@@ -1,22 +1,26 @@
 CC=zig cc
 CFLAGS=-c -pedantic -Werror -std=c99
 
+NAME=warp
+
 BIN=./bin
 SRC=./src
 OBJ=./obj
 INC=./inc
 
-all: $(BIN)/warp
+ifeq ($(OS),Windows_NT)
+	EXT=.exe
+else
+	EXT=
+endif
+
+all: $(BIN)/$(NAME)
 
 run: all
-	$(BIN)/warp $(ARGS)
+	$(BIN)/$(NAME) $(ARGS)
 
-$(BIN)/warp: $(OBJ)/main.o $(OBJ)/warp.o
-ifeq ($(OS),Windows_NT)
-	$(CC) $(OBJ)/main.o $(OBJ)/warp.o -lm -o $(BIN)/warp.exe
-else
-	$(CC) $(OBJ)/main.o $(OBJ)/warp.o -lm -o $(BIN)/warp
-endif
+$(BIN)/$(NAME): $(OBJ)/main.o $(OBJ)/warp.o
+	$(CC) $(OBJ)/main.o $(OBJ)/warp.o -lm -o $(BIN)/$(NAME)$(EXT)
 
 $(OBJ)/main.o: $(SRC)/main.c
 	$(CC) $(CFLAGS) $(SRC)/main.c -I$(INC) -o $(OBJ)/main.o
