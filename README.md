@@ -12,7 +12,7 @@ Invoke it thus:
 You can give it a distance in light-years, which will cause it to give the
 travel time in years:
 
-    # warp 5 -d 4.3
+    $ warp 5 -d 4.3
     0.0344
 
 Warp supports both TOS and TNG warp speed scales:
