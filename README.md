@@ -2,6 +2,8 @@
 
 Warp is a command-line warp speed calculator. Because you need one.
 
+<img src="https://vectorified.com/images/star-trek-enterprise-icon-8.png" width="120" height="120">
+
 ## Usage
 
 Invoke it thus:
