@@ -37,11 +37,7 @@ Or this:
 
     $ units -qsv1 "`warp 5 -t -d 4.3` yr" 'day'
     0.0201172 yr = 7.3476504 day
-    
+
 ## Installation
 
-Clone the repo and run `make`. (Although the Makefile has `CC` set to 
-[`zig cc`](https://ziglang.org/), it's a trivial matter to use GCC or your favorite C compiler 
-instead.) Then put warp on your path, and you're ready to go.
-
-[clang]: http://clang.llvm.org/
+Clone the repo and run `make`.

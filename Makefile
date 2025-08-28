@@ -1,4 +1,4 @@
-CC=zig cc
+CC=cc
 CFLAGS=-c -pedantic -Werror -std=c99
 
 NAME=warp

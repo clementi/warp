@@ -15,6 +15,11 @@
 #define _TNG_STR_ "--tng"
 #define _TNG_STR_SHORT_ "-t"
 
+#define _WARP_FACTOR_REQUIRED_ 1
+#define _DISTANCE_REQUIRED_ 2
+#define _WARP_FACTOR_NEGATIVE_ 4
+#define _WARP_FACTOR_GT_10_ 8
+
 void show_help(const char *progname);
 
 int main(const int argc, char const **argv) {
@@ -25,14 +30,14 @@ int main(const int argc, char const **argv) {
   double factor = 1.0;
 
   if (argc < 2) {
-    printf("Warp factor required.\n");
-    return 1;
+    fprintf(stderr, "Warp factor required.\n");
+    return _WARP_FACTOR_REQUIRED_;
   }
 
   if (strncmp(argv[1], _HELP_STR_SHORT_, strlen(_HELP_STR_SHORT_)) == 0 ||
       strncmp(argv[1], _HELP_STR_, strlen(_HELP_STR_)) == 0) {
     show_help(argv[0]);
-    return 0;
+    return EXIT_SUCCESS;
   }
 
   factor = strtod(argv[1], NULL);
@@ -45,8 +50,8 @@ int main(const int argc, char const **argv) {
       if (i + 1 < argc)
         distance_ly = strtod(argv[++i], NULL);
       else {
-        printf("Distance required.\n");
-        return 1;
+        fprintf(stderr, "Distance required.\n");
+        return _DISTANCE_REQUIRED_;
       }
     }
 
@@ -58,18 +63,18 @@ int main(const int argc, char const **argv) {
     if (strncmp(argv[i], _HELP_STR_SHORT_, strlen(_HELP_STR_SHORT_)) == 0 ||
         strncmp(argv[i], _HELP_STR_, strlen(_HELP_STR_)) == 0) {
       show_help(argv[0]);
-      return 0;
+      return EXIT_SUCCESS;
     }
   }
 
   if (factor < 0) {
-    printf("Warp factor must be non-negative.\n");
-    return 1;
+    fprintf(stderr, "Warp factor must be non-negative.\n");
+    return _WARP_FACTOR_NEGATIVE_;
   }
 
   if (use_tng && factor >= 10) {
-    printf("Warp factor must be less than 10 if using the TNG formula.\n");
-    return 1;
+    fprintf(stderr, "Warp factor must be less than 10 if using the TNG formula.\n");
+    return _WARP_FACTOR_GT_10_;
   }
 
   double velocity = use_tng ? tng_warp(factor) : tos_warp(factor);
@@ -79,7 +84,7 @@ int main(const int argc, char const **argv) {
   else
     printf("%lf\n", velocity);
 
-  return 0;
+  return EXIT_SUCCESS;
 }
 
 void show_help(const char *progname) {
