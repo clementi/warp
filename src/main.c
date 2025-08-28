@@ -18,7 +18,7 @@
 #define _WARP_FACTOR_REQUIRED_ 1
 #define _DISTANCE_REQUIRED_ 2
 #define _WARP_FACTOR_NEGATIVE_ 4
-#define _WARP_FACTOR_GT_10_ 8
+#define _WARP_FACTOR_GTE_10_ 8
 
 void show_help(const char *progname);
 
@@ -74,7 +74,7 @@ int main(const int argc, char const **argv) {
 
   if (use_tng && factor >= 10) {
     fprintf(stderr, "Warp factor must be less than 10 if using the TNG formula.\n");
-    return _WARP_FACTOR_GT_10_;
+    return _WARP_FACTOR_GTE_10_;
   }
 
   double velocity = use_tng ? tng_warp(factor) : tos_warp(factor);
